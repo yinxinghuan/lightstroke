@@ -1,0 +1,35 @@
+html, body { width: 100%; height: 100%; margin: 0; overflow: hidden; background: #000; }
+body { touch-action: none; overscroll-behavior: none; }
+canvas { display: block; width: 100%; height: 100%; }
+#ui { position: absolute; z-index: 2; bottom: 20px; left: 20px; color: #888; font-family: monospace; font-size: 12px; user-select: none; pointer-events: auto; line-height: 20px; }
+.baseline-row { display: block; margin-bottom: 10px; }
+.baseline-row > span { opacity: .7; }
+.baseline-row input { width: 100px; vertical-align: middle; cursor: pointer; }
+.baseline-row strong { color: inherit; font-weight: 400; }
+.baseline-action { cursor: pointer; }
+.ls-ui { position: fixed; inset: 0; z-index: 3; pointer-events: none; color: #f5f7f8; font-family: Arial, Helvetica, sans-serif; }
+.ls-title { position: absolute; top: max(20px, env(safe-area-inset-top)); left: 20px; color: #16191b; text-shadow: 0 1px 8px rgba(255,255,255,.8); }
+.ls-title span { display: block; margin-bottom: 7px; font: 700 9px/1 Arial,sans-serif; letter-spacing: .18em; opacity: .58; }
+.ls-title h1 { margin: 0; font: 900 clamp(25px,8vw,42px)/.78 Arial Black,Arial,sans-serif; letter-spacing: -.075em; }
+.ls-readout { position: absolute; top: max(20px, env(safe-area-inset-top)); right: 60px; display:flex; align-items:center; gap:7px; height:44px; color:#25292c; font:700 9px/1 Arial,sans-serif; letter-spacing:.11em; }
+.ls-readout > span { width:5px; height:5px; border-radius:50%; background:#ff5c73; box-shadow:0 0 9px #ff5c73; }
+.ls-clear { position:absolute; top:max(16px,env(safe-area-inset-top)); right:10px; width:44px; height:44px; padding:11px; border:0; background:transparent; color:#202427; pointer-events:auto; touch-action:manipulation; }
+.ls-clear svg { width:100%; height:100%; fill:none; stroke:currentColor; stroke-width:1.4; stroke-linecap:round; stroke-linejoin:round; }
+.ls-hint { position:absolute; left:50%; bottom:max(24px,calc(env(safe-area-inset-bottom) + 14px)); transform:translateX(-50%); min-height:44px; display:flex; align-items:center; gap:8px; padding:0 13px; color:#1c2023; border:1px solid rgba(20,24,27,.28); background:rgba(255,255,255,.64); backdrop-filter:blur(10px); white-space:nowrap; font:700 10px/1 Arial,sans-serif; letter-spacing:.06em; transition:opacity .3s ease,transform .3s ease; }
+.ls-hint svg { width:20px; height:20px; fill:currentColor; }
+.ls-hint.is-gone { opacity:0; transform:translate(-50%,10px); }
+.ls-ghost { position:absolute; left:0; top:0; width:100%; height:100%; opacity:0; transition:opacity .25s ease; }
+.ls-ghost.is-visible { opacity:1; }
+.ls-ghost__finger { position:absolute; width:42px; height:42px; color:rgba(255,255,255,.86); filter:drop-shadow(0 1px 1px #222) drop-shadow(0 4px 10px rgba(0,0,0,.28)); transform:translate(-50%,-50%); }
+.ls-ghost__finger svg { width:100%; height:100%; fill:currentColor; stroke:#222; stroke-width:.55; }
+.ls-ghost__finger--two { display:none; }
+.ls-ghost.is-orbit .ls-ghost__finger--two { display:block; }
+.ls-loading,.ls-error { position:fixed; z-index:10; inset:0; display:grid; place-content:center; justify-items:center; gap:14px; color:rgba(245,247,248,.72); background:#222; font:700 9px/1 Arial,sans-serif; letter-spacing:.18em; pointer-events:auto; transition:opacity .45s ease; }
+.ls-loading i { width:54px; height:9px; border-radius:999px; background:linear-gradient(90deg,#ff496d,#ffb044,#65e3ff,#745dff); box-shadow:0 5px 16px rgba(0,0,0,.35); animation:ls-loading-roll 1.2s ease-in-out infinite alternate; }
+.ls-error[hidden] { display:none; }
+.ls-error strong { color:#fff; font:900 28px/1 Arial Black,Arial,sans-serif; letter-spacing:-.04em; }
+.ls-error span { max-width:260px; color:rgba(255,255,255,.6); font:700 10px/1.5 Arial,sans-serif; letter-spacing:.08em; text-align:center; }
+.ls-baseline .ls-ui { display:none; }
+html:not(.ls-baseline) #ui { display:none; }
+@keyframes ls-loading-roll { to { transform:scaleX(.45) rotate(7deg); filter:hue-rotate(120deg); } }
+@media (min-width:700px) { .ls-title{top:28px;left:30px}.ls-hint{bottom:28px}.ls-readout{right:72px} }

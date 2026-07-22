@@ -1,0 +1,96 @@
+{
+  "guided": {
+    "baselineMode": false,
+    "drawMode": true,
+    "isDrawing": true,
+    "pointerCount": 0,
+    "drawCount": 900,
+    "roughness": 0,
+    "metalness": 0.25,
+    "cureActive": false,
+    "cameraPosition": [
+      0,
+      0,
+      5
+    ],
+    "renderer": "three.js r185 webgpu"
+  },
+  "drawn": {
+    "baselineMode": false,
+    "drawMode": true,
+    "isDrawing": false,
+    "pointerCount": 0,
+    "drawCount": 2880,
+    "roughness": 0.018,
+    "metalness": 0.25,
+    "cureActive": true,
+    "cameraPosition": [
+      0,
+      0,
+      5
+    ],
+    "renderer": "three.js r185 webgpu"
+  },
+  "cameraBefore": [
+    0,
+    0,
+    5
+  ],
+  "orbited": {
+    "baselineMode": false,
+    "drawMode": true,
+    "isDrawing": false,
+    "pointerCount": 2,
+    "drawCount": 2880,
+    "roughness": 0.006,
+    "metalness": 0.25,
+    "cureActive": true,
+    "cameraPosition": [
+      -0.018,
+      0.018,
+      2.538
+    ],
+    "renderer": "three.js r185 webgpu"
+  },
+  "compact": {
+    "baselineMode": false,
+    "drawMode": true,
+    "isDrawing": true,
+    "pointerCount": 0,
+    "drawCount": 900,
+    "roughness": 0,
+    "metalness": 0.25,
+    "cureActive": false,
+    "cameraPosition": [
+      0,
+      0,
+      5
+    ],
+    "renderer": "three.js r185 webgpu"
+  },
+  "baseline": {
+    "debug": {
+      "baselineMode": true,
+      "drawMode": true,
+      "isDrawing": false,
+      "pointerCount": 0,
+      "drawCount": 1710,
+      "roughness": 0,
+      "metalness": 0.25,
+      "cureActive": false,
+      "cameraPosition": [
+        0,
+        0,
+        5
+      ],
+      "renderer": "three.js r185 webgpu"
+    },
+    "uiVisible": true,
+    "productHidden": true
+  },
+  "errorState": {
+    "hidden": false,
+    "text": "WEBGPU REQUIRED\nRETRY IN A WEBGPU-CAPABLE BROWSER"
+  },
+  "errors": []
+}

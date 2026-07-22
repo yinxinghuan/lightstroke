@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta name="game-uuid" content="028ddc63-b825-4039-abe6-e30be246e28c" />
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#222222" />
+    <title>Lightstroke</title>
+    <script>document.documentElement.classList.toggle('ls-baseline', new URLSearchParams(location.search).get('baseline') === '1')</script>
+  </head>
+  <body>
+    <div id="ui">
+      <div class="baseline-row baseline-action" id="modeToggle"><span>Mode:</span> <strong id="mode">Draw</strong></div>
+      <label class="baseline-row"><span>Roughness:</span> <input type="range" id="roughnessSlider" min="0" max="1" step="0.01" value="0" /> <strong id="roughness">0.00</strong></label>
+      <label class="baseline-row"><span>Metalness:</span> <input type="range" id="metalnessSlider" min="0" max="1" step="0.01" value="0.25" /> <strong id="metalness">0.25</strong></label>
+      <div class="baseline-row baseline-action" id="downloadGLB"><span>Download GLB</span></div>
+    </div>
+    <main class="ls-ui" aria-label="Lightstroke interactive experience">
+      <header class="ls-title" aria-hidden="true"><span>04 / REFLECTIVE STUDY</span><h1>LIGHT<br />STROKE</h1></header>
+      <div class="ls-readout" aria-live="polite"><span></span><strong data-i18n="ready">拖动画出一道光</strong></div>
+      <button class="ls-clear" type="button" aria-label="Clear drawing">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M9 7V4h6v3m-8 0 1 13h8l1-13M10 11v5m4-5v5"/></svg>
+      </button>
+      <div class="ls-ghost" aria-hidden="true">
+        <span class="ls-ghost__finger ls-ghost__finger--one"><svg viewBox="0 0 24 24"><path d="M9 11.24V7.5C9 6.12 10.12 5 11.5 5S14 6.12 14 7.5v3.74c1.21-.81 2-2.18 2-3.74C16 5.01 13.99 3 11.5 3S7 5.01 7 7.5c0 1.56.79 2.93 2 3.74zm9.84 4.63-4.54-2.26c-.17-.07-.35-.11-.54-.11H13v-6c0-.83-.67-1.5-1.5-1.5S10 6.67 10 7.5v10.74l-3.43-.72c-.08-.01-.15-.03-.24-.03-.31 0-.59.13-.79.33l-.79.8 4.94 4.94c.27.27.65.44 1.06.44h6.79c.75 0 1.33-.55 1.44-1.28l.75-5.27c.01-.07.02-.14.02-.2 0-.62-.38-1.16-.92-1.38z"/></svg></span>
+        <span class="ls-ghost__finger ls-ghost__finger--two"><svg viewBox="0 0 24 24"><path d="M9 11.24V7.5C9 6.12 10.12 5 11.5 5S14 6.12 14 7.5v3.74c1.21-.81 2-2.18 2-3.74C16 5.01 13.99 3 11.5 3S7 5.01 7 7.5c0 1.56.79 2.93 2 3.74zm9.84 4.63-4.54-2.26c-.17-.07-.35-.11-.54-.11H13v-6c0-.83-.67-1.5-1.5-1.5S10 6.67 10 7.5v10.74l-3.43-.72c-.08-.01-.15-.03-.24-.03-.31 0-.59.13-.79.33l-.79.8 4.94 4.94c.27.27.65.44 1.06.44h6.79c.75 0 1.33-.55 1.44-1.28l.75-5.27c.01-.07.02-.14.02-.2 0-.62-.38-1.16-.92-1.38z"/></svg></span>
+      </div>
+      <div class="ls-hint"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 11.24V7.5C9 6.12 10.12 5 11.5 5S14 6.12 14 7.5v3.74c1.21-.81 2-2.18 2-3.74C16 5.01 13.99 3 11.5 3S7 5.01 7 7.5c0 1.56.79 2.93 2 3.74zm9.84 4.63-4.54-2.26c-.17-.07-.35-.11-.54-.11H13v-6c0-.83-.67-1.5-1.5-1.5S10 6.67 10 7.5v10.74l-3.43-.72c-.08-.01-.15-.03-.24-.03-.31 0-.59.13-.79.33l-.79.8 4.94 4.94c.27.27.65.44 1.06.44h6.79c.75 0 1.33-.55 1.44-1.28l.75-5.27c.01-.07.02-.14.02-.2 0-.62-.38-1.16-.92-1.38z"/></svg><span data-i18n="hint">双指移动 · 环绕作品</span></div>
+      <div class="ls-loading"><i></i><span data-i18n="loading">正在建立光场</span></div>
+      <div class="ls-error" hidden><strong data-i18n="errorTitle">需要 WebGPU</strong><span data-i18n="errorBody">请使用支持 WebGPU 的浏览器重试</span></div>
+    </main>
+    <script>
+      window.addEventListener('error', event => { window.__LIGHTSTROKE_ERROR__ = event.error?.stack || event.message })
+      window.addEventListener('unhandledrejection', event => { window.__LIGHTSTROKE_ERROR__ = event.reason?.stack || String(event.reason) })
+    </script>
+    <script type="module" src="./src/main.js"></script>
+  </body>
+</html>
