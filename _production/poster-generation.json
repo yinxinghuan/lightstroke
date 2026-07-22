@@ -1,0 +1,13 @@
+{
+  "provider": "Aigram platform transit",
+  "endpoint": "https://chat.aiwaves.tech/aigram/api/gen-image",
+  "origin": "https://aigram.app",
+  "generated_at": "2026-07-23",
+  "ref_url": "https://raw.githubusercontent.com/yinxinghuan/lightstroke/main/public/poster-reference.jpg",
+  "source_url": "https://cdn.aiwaves.tech/prod/telegram/avatar/0/1784751046865687.webp",
+  "source_file": "_production/poster-source-final.webp",
+  "final_file": "public/poster.png",
+  "final_size": "1024x1024",
+  "thumbnail_checked": "160x160",
+  "notes": "The platform output was cropped from portrait to square, then the title was typeset in the upper safe area. The real WebGPU screenshot remained the visual reference; no game screenshot was used directly as the final poster."
+}
